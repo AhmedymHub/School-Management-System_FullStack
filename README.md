@@ -47,6 +47,17 @@ This project integrates Python-based machine learning to:
 
 ---
 
+## 👥 Role-Based Dashboards
+
+The system includes custom dashboards for different user roles, each with unique functionality:
+
+- 🛠️ **Admin Dashboard**: Manage students, teachers, classes, schedules, and access analytics.
+- 👩‍🏫 **Teacher Dashboard**: View class rosters, record attendance, input grades, and access resources.
+- 🎓 **Student Dashboard**: View personal progress, grades, calendar, and receive AI-based feedback.
+- 👨‍👩‍👧‍👦 **Parent Dashboard**: Track child performance, attendance, and receive alerts from the school.
+
+---
+
 ## 🛠 Getting Started
 
 To start the development server locally:
@@ -61,7 +72,33 @@ pnpm install && pnpm dev
 # or
 bun install && bun dev
 ```
+
 Then open http://localhost:3000 to view it in your browser.
 
 You can start editing by modifying app/page.tsx. The page will auto-update as you save changes.
 
+📚 Learn More
+Next.js Documentation
+
+Lama Dev YouTube Channel
+
+Prisma Docs
+
+FastAPI Docs
+
+PostgreSQL
+
+📦 Features Summary
+✅ Role-based dashboards (Admin, Teacher, Student, Parent)
+
+✅ Attendance & grade tracking
+
+✅ Class scheduling & student management
+
+✅ Interactive calendar and Kanban board
+
+✅ WYSIWYG editor and color picker
+
+✅ Multiple charts and visual dashboards
+
+✅ Integrated Python ML APIs for predictions and insights
