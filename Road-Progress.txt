@@ -1,0 +1,7 @@
+
+I used 4 Charts from recharts
+
+1rs. SimpleRadiaBarChart
+2nd. SimpleBarChart
+3rd. SimpleLineChart
+4th. StraightAnglePieChart
