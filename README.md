@@ -60,8 +60,8 @@ yarn install && yarn dev
 pnpm install && pnpm dev
 # or
 bun install && bun dev
-
-
+```
 Then open http://localhost:3000 to view it in your browser.
 
 You can start editing by modifying app/page.tsx. The page will auto-update as you save changes.
+
