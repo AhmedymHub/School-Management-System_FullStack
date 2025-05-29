@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,9 +21,15 @@ const config: Config = {
         AmedPurpleLight: "#F1F0FF",
         AmedYellow: "#FAE27C",
         AmedYellowLight: "#FEFCE8",
+        // Add dark mode base colors:
+        backgroundLight: "#ffffff",
+        backgroundDark: "#1a1a1a",
+        textLight: "#000000",
+        textDark: "#f0f0f0",
       },
     },
   },
   plugins: [],
 };
+
 export default config;

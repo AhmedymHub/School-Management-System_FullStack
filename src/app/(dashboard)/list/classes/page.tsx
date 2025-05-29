@@ -1,4 +1,4 @@
-import FormModal from "@/components/FormModal";
+import FormContainer from "@/components/FormContainer";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -16,7 +16,7 @@ import Image from "next/image";
 //   supervisor: string;
 // };
 
-type ClassList = Class & { supervisor: Teacher[] };
+type ClassList = Class & { supervisor: Teacher };
 
 const getColumns = async () => {
   const userRole = await role();
@@ -66,8 +66,8 @@ const renderRow = async (item: ClassList) => (
       <div className="flex items-center gap-2">
         {(await role()).role === "admin" && (
           <>
-            <FormModal table="class" type="update" data={item} />
-            <FormModal table="class" type="delete" id={item.id} />
+            <FormContainer table="class" type="update" data={item} />
+            <FormContainer table="class" type="delete" id={item.id} />
           </>
         )}
       </div>
@@ -139,7 +139,7 @@ const ClassListPage = async ({
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {(await role()).role === "admin" && (
-              <FormModal table="class" type="create" />
+              <FormContainer table="class" type="create" />
             )}
           </div>
         </div>

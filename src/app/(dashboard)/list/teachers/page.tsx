@@ -1,4 +1,3 @@
-import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -8,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ITEMS_PER_PAGE } from "@/lib/settings";
 import role from "@/lib/utils";
+import FormContainer from "@/components/FormContainer";
 
 type TeacherList = Teacher & { subjects: Subject[] } & { classes: Class[] };
 
@@ -65,7 +65,7 @@ const renderRow = async (item: TeacherList) => (
         alt=""
         width={40}
         height={40}
-        className="md:hidden xl:block w-10 h-10 rounded-full object-cover"
+        className=" xl:block w-10 h-10 rounded-full object-cover"
       />
       <div className="flex flex-col">
         <h3 className="font-semibold">{item.name}</h3>
@@ -98,7 +98,7 @@ const renderRow = async (item: TeacherList) => (
           //   <button className="flex items-center w-7 h-7 justify-center bg-AmedPurple rounded-full bg:AmedPurple hover:bg-red-300">
           //   <Image src="/delete.png" alt="" width={16} height={16} />
           //  </button>
-          <FormModal table="teacher" type="delete" id={item.id} />
+          <FormContainer table="teacher" type="delete" id={item.id} />
         )}
       </div>
     </td>
@@ -180,7 +180,7 @@ const TeacherListPage = async ({
               // <button className="w-8 h-8 flex items-center justify-center bg-AmedYellow rounded-full">
               //   <Image src="/create.png" alt="" width={14} height={14} />
               // </button>
-              <FormModal table="teacher" type="create" />
+              <FormContainer table="teacher" type="create" />
             )}
           </div>
         </div>

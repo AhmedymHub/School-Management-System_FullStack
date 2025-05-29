@@ -1,6 +1,18 @@
 import { Day, PrismaClient, UserSex } from "@prisma/client";
 const prisma = new PrismaClient();
 
+// function getNextDateForWeekday(
+//   weekday: number,
+//   hour: number,
+//   minute: number = 0
+// ) {
+//   const now = new Date();
+//   const result = new Date(now);
+//   result.setDate(now.getDate() + ((7 + weekday - now.getDay()) % 7 || 7));
+//   result.setHours(hour, minute, 0, 0);
+//   return result;
+// }
+
 async function main() {
   // ADMIN
   await prisma.admin.create({
@@ -75,6 +87,28 @@ async function main() {
       },
     });
   }
+
+  // // LESSON
+  // for (let i = 1; i <= 30; i++) {
+  //   const dayKeys = Object.keys(Day) as (keyof typeof Day)[];
+  //   const dayEnum = dayKeys[Math.floor(Math.random() * dayKeys.length)];
+  //   const dayIndex = dayKeys.indexOf(dayEnum); // 0 = MONDAY, 1 = TUESDAY, etc.
+
+  //   const start = getNextDateForWeekday(dayIndex + 1, 9);
+  //   const end = getNextDateForWeekday(dayIndex + 1, 11);
+
+  //   await prisma.lesson.create({
+  //     data: {
+  //       name: `Lesson${i}`,
+  //       day: Day[dayEnum],
+  //       startTime: start,
+  //       endTime: end,
+  //       subjectId: (i % 10) + 1,
+  //       classId: (i % 6) + 1,
+  //       teacherId: `teacher${(i % 15) + 1}`,
+  //     },
+  //   });
+  // }
 
   // LESSON
   for (let i = 1; i <= 30; i++) {

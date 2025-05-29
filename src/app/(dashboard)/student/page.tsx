@@ -1,14 +1,24 @@
-"use client";
-
 // import { useEffect, useState } from "react";
 // import { getPrediction } from "@/lib/mlApi";
-import BigCalendar from "@/components/BigCalender";
 import EventCalendar from "@/components/EventCalendar";
 import Announcements from "@/components/Announcements";
+import BigCalendarContainer from "@/components/BigCalendarContainer";
+import { auth } from "@clerk/nextjs/server";
+import prisma from "@/lib/prisma";
 // import PredictionChart from "@/components/PredictionCharts";
 // import PredictionImageChart from "@/components/PredictionImageChart";
 
-const StudentPage = () => {
+const StudentPage = async () => {
+  const { userId } = await auth();
+
+  const classItem = await prisma.class.findMany({
+    where: {
+      students: { some: { id: userId! } },
+    },
+  });
+
+  console.log("Class Item:", classItem);
+
   // const [prediction, setPrediction] = useState<string | null>(null);
 
   // useEffect(() => {
@@ -35,7 +45,13 @@ const StudentPage = () => {
             {/* <p className="text-green-700 font-bold">{prediction}</p> */}
             {/* <PredictionChart /> */}
           </div>
-          <BigCalendar />
+          {classItem.length > 0 ? (
+            <BigCalendarContainer type="classId" id={classItem[0].id} />
+          ) : (
+            <p className="text-red-600 font-semibold items-center justify-center">
+              No class assigned yet.
+            </p>
+          )}
         </div>
       </div>
 

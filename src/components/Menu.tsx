@@ -146,7 +146,7 @@ const Menu = async () => {
   const user = await currentUser();
   const role = user?.publicMetadata.role as string;
   return (
-    <div className="">
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white p-4 transition-colors duration-300">
       {menuItems.map((i) => (
         <div className=" flex flex-col gap-2" key={i.title}>
           <span className="hidden lg:block text-gray-400 font-light my-4">

@@ -1,3 +1,4 @@
+import FormContainer from "@/components/FormContainer";
 import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
@@ -16,21 +17,28 @@ import Image from "next/image";
 
 type SubjectList = Subject & { teachers: Teacher[] };
 
-const columns = [
-  {
-    header: "Subject Name",
-    accessor: "name",
-  },
-  {
-    header: "Teachers",
-    accessor: "teachers",
-    className: "hidden md:table-cell",
-  },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
-];
+const getColumns = async () => {
+  const userRole = await role();
+  return [
+    {
+      header: "Subject Name",
+      accessor: "name",
+    },
+    {
+      header: "Teachers",
+      accessor: "teachers",
+      className: "hidden md:table-cell",
+    },
+    ...(userRole.role === "admin"
+      ? [
+          {
+            header: "Actions",
+            accessor: "action",
+          },
+        ]
+      : []),
+  ];
+};
 
 const renderRow = async (item: SubjectList) => (
   <tr
@@ -45,8 +53,8 @@ const renderRow = async (item: SubjectList) => (
       <div className="flex items-center gap-2">
         {(await role()).role === "admin" && (
           <>
-            <FormModal table="subject" type="update" data={item} />
-            <FormModal table="subject" type="delete" id={item.id} />
+            <FormContainer table="subject" type="update" data={item} />
+            <FormContainer table="subject" type="delete" id={item.id} />
           </>
         )}
       </div>
@@ -98,6 +106,8 @@ const SubjectListPage = async ({
     }),
   ]);
 
+  const columns = await getColumns();
+
   return (
     <div className="bg-white p-4 rounded-md flex-1 m-4 mt-0">
       {/* TOP */}
@@ -106,14 +116,14 @@ const SubjectListPage = async ({
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
+            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-AmedYellow">
               <Image src="/filter.png" alt="" width={14} height={14} />
             </button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
+            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-AmedYellow">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
             {(await role()).role === "admin" && (
-              <FormModal table="teacher" type="create" />
+              <FormContainer table="subject" type="create" />
             )}
           </div>
         </div>
