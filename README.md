@@ -1,56 +1,73 @@
 # 🎓 School Management System – Full-Stack Web Application
 
-A modern full-stack **School Management System** built with **Next.js**, **Prisma**, **PostgreSQL**, and **FastAPI**. The platform supports multiple user roles and includes machine learning features to enhance student performance analysis and school operations.
+<!-- Tech Stack Logos -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" alt="Next.js" height="30"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" height="30"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwind-css&logoColor=white" alt="Tailwind CSS" height="30"/>
+  <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" alt="FastAPI" height="30"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white" alt="PostgreSQL" height="30"/>
+  <img src="https://img.shields.io/badge/Prisma-0C344B?logo=prisma&logoColor=white" alt="Prisma" height="30"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python" height="30"/>
+</p>
+
+---
+
+A modern full-stack **School Management System** built with **Next.js**, **Prisma**, **PostgreSQL**, and **FastAPI**. The platform supports multiple user roles and integrates machine learning to predict student success based on academic performance and behavior.
 
 ## 🔗 Live Demo
 
-👉 [View Live Project](http://localhost:3000/) <!-- Replace with actual deployed URL -->
+👉 [View Live Project](https://your-deployed-site-url.com) <!-- Replace with your deployed site URL -->
+
+---
 
 ## 🚀 Features
 
-- 🔐 Role-Based Authentication: Admin, Teacher, Student, Parent
-- 📅 Interactive Calendar
-- 📌 Kanban Task Board for Assignments and Projects
+- 🔐 Role-based Dashboards: Admin, Teacher, Student, Parent
+- 🧠 ML-powered Student Success Prediction
+- 📅 Full-featured Calendar
+- 📌 Kanban Task Management
 - 📝 Rich Text Editor (WYSIWYG)
 - 🎨 Light/Dark Theme Toggle
-- 📈 7 Types of Dynamic Charts
-- 🎯 Machine Learning Integration:
-  - ✅ Student Success Prediction using academic data
-- 🖼️ Modern UI built with Tailwind CSS and TypeScript
+- 📈 7 Dynamic Charts
+- 🎯 Student Analytics & Behavior Tracking
+- 🌍 Weather Info via API
 
-## 🧠 Machine Learning Features
+---
 
-Powered by **Python** and **FastAPI**, the machine learning service provides:
+## 🧠 Machine Learning Integration
 
-- 🎓 **Student Success Prediction**  
-  Predicts the likelihood of student academic success based on:
-  - Attendance
-  - Grades
-  - Class performance
-  - Behavioral data
+The `/ml-service` (Python + FastAPI) module provides predictive insights on student performance using:
 
-**Input**: CSV files (`Student.csv`, `Result.csv`, `Attendance.csv`, etc.)  
-**Output**: Predictive labels (e.g., "Likely to succeed", "At risk")
+- 🎓 Attendance
+- 🧾 Grades
+- 🏫 Class data
+- 📊 Results and lesson history
 
-Service runs in the `/ml-service` directory and connects to the frontend dashboard for live insights.
+> Input: CSVs (`Student.csv`, `Attendance.csv`, `Result.csv`, etc.)  
+> Output: Success probability + prediction labels (e.g., "At risk", "Likely to succeed")
+
+---
 
 ## 🛠️ Tech Stack
 
-**Frontend**:
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Recharts](https://recharts.org/)
+**Frontend**:  
+- Next.js  
+- TypeScript  
+- Tailwind CSS  
+- Recharts  
 
-**Backend**:
-- [FastAPI](https://fastapi.tiangolo.com/) (ML API)
-- [Prisma ORM](https://www.prisma.io/)
-- [PostgreSQL](https://www.postgresql.org/)
+**Backend**:  
+- FastAPI (Python ML API)  
+- Prisma ORM  
+- PostgreSQL  
 
-**Machine Learning**:
-- [Pandas](https://pandas.pydata.org/)
-- [Scikit-learn](https://scikit-learn.org/)
-- [FastAPI](https://fastapi.tiangolo.com/)
+**ML Libraries**:  
+- Scikit-learn  
+- Pandas  
+- FastAPI  
 
-## 📁 Project Structure
+---
+
+## 📂 Project Structure
 
